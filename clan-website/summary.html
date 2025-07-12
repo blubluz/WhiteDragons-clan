@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Progress Summary - Clan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Level Progress Summary</h1>
+                <nav>
+                    <a href="index.html">Current Members</a>
+                    <a href="left-members.html">Left Members</a>
+                    <a href="summary.html" class="active">Progress Summary</a>
+                </nav>
+            </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+        
+        <main>
+            <div class="summary-container">
+                <div class="summary-header">
+                    <h2>Level Progress Summary (09.07 → 12.07)</h2>
+                    <div class="summary-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalMembers">0</span>
+                            <span class="stat-label">Total Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="activeMembers">0</span>
+                            <span class="stat-label">Active</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="newMembers">0</span>
+                            <span class="stat-label">New</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="top-increases">
+                        <span class="tab-icon">🏆</span>
+                        Top Increases
+                    </button>
+                    <button class="tab-button" data-tab="above-40">
+                        <span class="tab-icon">⚠️</span>
+                        Above 40 - No Progress
+                    </button>
+                    <button class="tab-button" data-tab="level-30-40">
+                        <span class="tab-icon">🔴</span>
+                        Level 30-40 - No Progress
+                    </button>
+                    <button class="tab-button" data-tab="under-30">
+                        <span class="tab-icon">🔴</span>
+                        Under Level 30
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="top-increases" class="tab-pane active">
+                        <div class="summary-grid" id="topLevelIncreases"></div>
+                    </div>
+                    
+                    <div id="above-40" class="tab-pane">
+                        <div class="summary-grid" id="above40NoProgress"></div>
+                    </div>
+                    
+                    <div id="level-30-40" class="tab-pane">
+                        <div class="summary-grid" id="level30to40NoProgress"></div>
+                    </div>
+                    
+                    <div id="under-30" class="tab-pane">
+                        <div class="summary-grid" id="under30Members"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="data.js"></script>
+    <script src="summary-script.js"></script>
+</body>
+</html> 
