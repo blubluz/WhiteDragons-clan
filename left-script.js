@@ -2,18 +2,26 @@
 
 function populateLeftTable() {
     const tbody = document.getElementById('leftMembersTableBody');
-    
+    tbody.innerHTML = '';
     leftMembers.forEach((member, index) => {
         const row = document.createElement('tr');
-        
         row.innerHTML = `
             <td>${index + 1}</td>
-            <td>${member.name}</td>
+            <td>
+                <span class="member-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${member.name}
+                </span>
+            </td>
             <td>${member.level1 || '-'}</td>
             <td>${member.level2 || '-'}</td>
-            <td>${member.class}</td>
+            <td>
+                <span class="class-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${getClassNameById(member.classId)}
+                </span>
+            </td>
         `;
-        
         tbody.appendChild(row);
     });
 }

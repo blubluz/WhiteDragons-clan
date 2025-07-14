@@ -588,4 +588,29 @@ tbody tr:hover {
     th, td {
         padding: 8px 5px;
     }
+}
+
+/* Class icon styles */
+.class-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.class-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .class-icon {
+    filter: brightness(0.9);
 } 

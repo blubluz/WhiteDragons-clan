@@ -2,28 +2,34 @@
 
 function populateTable() {
     const tbody = document.getElementById('membersTableBody');
-    
+    tbody.innerHTML = '';
     currentMembers.forEach((member, index) => {
         const row = document.createElement('tr');
-        
         // Check if member is new (level1 was 0)
         const isNewMember = member.level1 === 0;
         if (isNewMember) {
             row.classList.add('new-member');
         }
-        
         // Calculate level change
         const levelChange = member.level2 - member.level1;
         const levelChangeClass = levelChange > 0 ? 'level-increase' : levelChange === 0 ? 'level-same' : 'level-decrease';
-        
         row.innerHTML = `
             <td>${index + 1}</td>
-            <td>${member.name}</td>
+            <td>
+                <span class="member-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${member.name}
+                </span>
+            </td>
             <td>${member.level1 || '-'}</td>
             <td class="level-change ${levelChangeClass}">${member.level2 || '-'}</td>
-            <td>${member.class}</td>
+            <td>
+                <span class="class-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${getClassNameById(member.classId)}
+                </span>
+            </td>
         `;
-        
         tbody.appendChild(row);
     });
 }

@@ -3,11 +3,20 @@
 function createSummaryCard(member, levelChange, cardType = '') {
     const levelChangeClass = levelChange > 0 ? 'level-increase' : levelChange === 0 ? 'level-same' : 'level-decrease';
     const levelChangeText = levelChange > 0 ? `+${levelChange}` : levelChange === 0 ? '0' : levelChange;
-    
     return `
         <div class="summary-card ${cardType}">
-            <div class="member-name">${member.name}</div>
-            <div class="member-class">${member.class}</div>
+            <div class="member-name">
+                <span class="member-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${member.name}
+                </span>
+            </div>
+            <div class="member-class">
+                <span class="class-info">
+                    <img src="${getClassIconById(member.classId)}" alt="class" class="class-icon" onerror="this.style.display='none'">
+                    ${getClassNameById(member.classId)}
+                </span>
+            </div>
             <div class="level-info">
                 <span>${member.level1 || '-'} → ${member.level2 || '-'}</span>
                 <span class="level-change ${levelChangeClass}">${levelChangeText}</span>
